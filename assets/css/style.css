@@ -90,13 +90,13 @@ section + section { border-top: 1px solid var(--rule); }
 .skills th { width: 11rem; font-family: var(--head); font-size: 1.3rem; font-weight: 700; }
 
 /* case study */
-.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 0; border: 1px solid var(--ink); background: var(--paper); margin-top: 2rem; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 0; border: 1px solid var(--ink); background: var(--paper); margin-top: 2rem; }
 .meta div { padding: .8rem 1rem; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .meta dt { font-size: .85rem; color: var(--ink-soft); }
 .meta dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
 .note { background: var(--amber-bg); border: 1px solid #e3c98d; color: var(--amber-text); padding: 1rem 1.2rem; border-radius: 3px; max-width: 70ch; }
 .note strong { color: inherit; }
-.flow { list-style: none; counter-reset: s; display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 0; padding: 0; margin: 1.5rem 0 0; border: 1px solid var(--ink); background: var(--paper); }
+.flow { list-style: none; counter-reset: s; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 0; padding: 0; margin: 1.5rem 0 0; border: 1px solid var(--ink); background: var(--paper); }
 .flow li { counter-increment: s; padding: 1rem; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); position: relative; }
 .flow li::before { content: counter(s); display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--ink); color: #fff; font-weight: 700; margin-bottom: .5rem; }
 .flow li.ref::before { background: #8a96a6; }
@@ -157,3 +157,55 @@ dialog.lb button { position: absolute; top: .5rem; right: .5rem; background: #ff
 }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
 @media print { .site-head, .btn-row { display: none; } body { background: #fff; } }
+
+/* ===== Dark theme =====
+   Page background and the text that sits directly on it.
+   White panels (map frame, tables, cards, screenshots) keep their light look. */
+:root { --page: #0e1b2c; --page-edge: #2a3d55; --on-dark: #e8eef5; --on-dark-soft: #b4c3d3; --link-dark: #6fd6cf; }
+html { color-scheme: dark; }
+body { background: var(--page); color: var(--on-dark); }
+a { color: var(--link-dark); }
+a:hover { color: #fff; }
+
+/* header and footer */
+.site-head { background: rgba(14, 27, 44, .96); border-bottom-color: var(--page-edge); }
+.brand, .nav a { color: #fff; }
+.site-foot { background: #0a1523; border-top-color: var(--page-edge); }
+
+/* headings and text on the page */
+h1, h2, h3 { color: #fff; }
+.lede { color: #c9d6e4; }
+.muted, .caption, small { color: var(--on-dark-soft); }
+section + section { border-top-color: var(--page-edge); }
+
+/* buttons */
+.btn { background: var(--teal); border-color: var(--teal); color: #0e1b2c; }
+.btn:hover { background: #fff; border-color: #fff; color: #0e1b2c; }
+.btn.alt { background: transparent; border-color: #8fa3b8; color: #fff; }
+.btn.alt:hover { background: #fff; border-color: #fff; color: #0e1b2c; }
+
+/* hero grid */
+.hero { border-bottom-color: var(--page-edge);
+  background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px); }
+.hero::before { background: linear-gradient(90deg, #0e1b2c 0%, rgba(14,27,44,.88) 45%, rgba(14,27,44,.55) 100%); }
+
+/* project row, tags, skills, downloads */
+.proj { border-top-color: #5b7390; }
+.proj:last-child { border-bottom-color: #5b7390; }
+.proj img { border-color: var(--page-edge); }
+.proj h3 a { color: #fff; }
+.proj h3 a:hover { color: var(--link-dark); }
+.tags li { background: #16283f; border-color: #35506e; color: var(--on-dark); }
+.skills th, .skills td { border-top-color: var(--page-edge); }
+.skills th { color: #fff; }
+.skills tr { border-top-color: var(--page-edge); }
+.dl { border-top-color: #5b7390; }
+.dl li { border-bottom-color: var(--page-edge); }
+.future { border-color: #6f86a0; }
+
+/* light panels keep dark text */
+.sheet, .meta, .flow, .table-wrap, .feat figure, .shot, .tree, .results > div { color: var(--ink); }
+.feat h3, .results h3 { color: var(--ink); }
+.sheet .caption, .shot .caption, .feat figcaption p { color: var(--ink-soft); }
+.sheet a, .shot a, .table-wrap a { color: var(--teal-text); }
+@media (max-width: 52rem) { .hero::before { background: rgba(14, 27, 44, .82); } }
