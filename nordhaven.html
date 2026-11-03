@@ -1,1 +1,97 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NORDHAVEN | Mahadev M</title><link rel="stylesheet" href="styles.css"></head><body><header><a class="logo" href="index.html">M<span>.</span> <small>MAHADEV M</small></a><nav><a href="index.html#about">About</a><a href="index.html#skills">Expertise</a><a href="index.html#contact">Contact ↗</a></nav></header><main><section class="casehero"><a href="index.html">← Back to portfolio</a><label>INDEPENDENT GIS CASE STUDY / 001</label><h1>NORDHAVEN<span>®</span></h1><h3>Urban Infrastructure Mapping &amp; Geospatial Data Engineering</h3><p>BREMEN, GERMANY　·　QGIS 3.10.13　·　GEOPACKAGE　·　EPSG:25832</p></section><section><label>01 / OVERVIEW</label><div><h2>A structured GIS workflow for <i>infrastructure data.</i></h2><p>NORDHAVEN is an independent portfolio case study demonstrating a practical workflow for organising and mapping selected urban infrastructure features in a GIS environment.</p><p>OpenStreetMap-derived road, building and land-use layers are used as reference context. Infrastructure demonstration features, classification fields and the GeoPackage structure were independently created for this case study.</p><blockquote>This is an independent demonstration project. It is not an official Bremen municipal inventory, client deliverable or reproduction of employer data. Demonstration features are not represented as verified real-world assets.</blockquote></div></section><section><label>02 / DATA MODEL</label><div><h2>One project. <i>Five layers.</i></h2><p>The project database, <code>Nordhaven_Infrastructure.gpkg</code>, contains five layers:</p><div class="table"><p><b>road-areas</b> — Polygon — Road and paved-area demonstration classes</p><p><b>infrastructure_points</b> — Point — Manhole, tree and streetlight examples</p><p><b>infrastructure_lines</b> — Line — Curb, drainage channel and crash barrier examples</p><p><b>traffic_signs</b> — Line — Synthetic traffic-sign demonstration features</p><p><b>study_area</b> — Polygon — Study-area boundary</p></div></div></section><section><label>03 / WORKFLOW</label><div><h2>From reference data to <i>structured layers.</i></h2><div class="cards"><article><small>01</small><h3>Project setup</h3><p>Organise QGIS project, reference layers and CRS EPSG:25832.</p></article><article><small>02</small><h3>Feature mapping</h3><p>Create independent demonstration polygon, point and line features.</p></article><article><small>03</small><h3>Attribute design</h3><p>Structure feature IDs, thematic classes, material/status fields and review status.</p></article><article><small>04</small><h3>Database management</h3><p>Store project layers in a single GeoPackage.</p></article><article><small>05</small><h3>Basic QA/QC</h3><p>Run QGIS geometry validity checks and selected-field completeness checks.</p></article><article><small>06</small><h3>Map communication</h3><p>Prepare overview map layout and technical documentation.</p></article></div></div></section><section><label>04 / QA & LIMITATIONS</label><div><h2>Checks performed. <i>Claims kept precise.</i></h2><ul><li>QGIS Check Validity reported zero invalid geometries in tested layers.</li><li>A selected-field completeness check on road-areas returned zero features with missing values in the checked fields.</li><li>Feature review-status values remain Pending in the current demonstration dataset.</li></ul><blockquote>These checks do not constitute comprehensive topology validation, positional-accuracy assessment, thematic verification or production certification. No automated Python QA/QC or PostGIS workflow is claimed.</blockquote></div></section><section><label>05 / OUTPUTS</label><div><h2>Project <i>deliverables.</i></h2><p>GeoPackage database · Infrastructure overview map PDF · Technical methodology document · QGIS and database evidence screenshots.</p><blockquote>Download links and screenshots will be added after the final assets have been reviewed for public release.</blockquote></div></section></main><footer>MAHADEV M <span>NORDHAVEN / INDEPENDENT CASE STUDY</span><span>© 2026</span></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NORDHAVEN | Mahadev M</title><link rel="stylesheet" href="styles.css">
+<style>
+.project-intro{max-width:900px}.notice{border-left:3px solid #d8ad70;padding:16px 20px;background:rgba(216,173,112,.08);margin:24px 0;color:inherit}
+.statgrid,.layergrid,.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:22px 0}
+.stat,.layer,.evidence{border:1px solid rgba(160,190,175,.22);padding:16px;border-radius:10px;background:rgba(255,255,255,.025)}
+.stat strong{display:block;font-size:1.45rem;color:#d8ad70}.layer h3,.evidence h3{margin:8px 0}
+.gallery img{width:100%;height:auto;display:block;border-radius:6px;border:1px solid rgba(160,190,175,.2)}
+.gallery figure{margin:0}.gallery figcaption{font-size:.9rem;color:#aebbb3;margin-top:8px}
+.pdf-frame{width:100%;height:780px;border:1px solid rgba(160,190,175,.25);border-radius:10px;background:#fff}
+.downloads a{display:inline-block;margin:6px 10px 6px 0;padding:11px 15px;border:1px solid #d8ad70;border-radius:4px;color:inherit;text-decoration:none}
+.smallnote{font-size:.9rem;color:#aebbb3}
+@media(max-width:700px){.pdf-frame{height:520px}}
+</style>
+</head>
+<body>
+<header><a class="logo" href="index.html">M<span>.</span> <small>MAHADEV M</small></a><nav><a href="index.html#about">About</a><a href="index.html#skills">Expertise</a><a href="index.html#contact">Contact ↗</a></nav></header>
+<main>
+<section class="casehero">
+<a href="index.html">← Back to portfolio</a><label>INDEPENDENT GIS CASE STUDY / 001</label>
+<h1>NORDHAVEN</h1><h3>Urban Infrastructure Mapping &amp; Geospatial Data Engineering</h3>
+<p>BREMEN, GERMANY　·　QGIS 3.10.13　·　GEOPACKAGE　·　EPSG:25832</p>
+</section>
+
+<section><label>01 / PROJECT OVERVIEW</label><div class="project-intro">
+<h2>A structured GIS workflow for <i>urban infrastructure data.</i></h2>
+<p>NORDHAVEN is an independently developed geospatial infrastructure mapping case study. It combines OpenStreetMap-derived reference layers with independently created demonstration infrastructure features in a structured GeoPackage database.</p>
+<p>The project demonstrates spatial data preparation, polygon/point/line feature digitisation, attribute management, basic geometry and attribute checks, and cartographic production in QGIS.</p>
+<div class="statgrid">
+<div class="stat"><strong>Bremen</strong>Study area · Germany</div><div class="stat"><strong>QGIS 3.10.13</strong>GIS platform</div><div class="stat"><strong>EPSG:25832</strong>ETRS89 / UTM Zone 32N</div><div class="stat"><strong>5 layers</strong>Stored in one GeoPackage</div>
+</div>
+<div class="notice">Independent demonstration project. It is not a client deliverable, official municipal infrastructure inventory, or reproduction of confidential employer data. Demonstration features are not represented as verified real-world assets.</div>
+</div></section>
+
+<section><label>02 / FINAL CARTOGRAPHIC OUTPUT</label><div>
+<h2>The infrastructure overview <i>map.</i></h2>
+<p>The QGIS print layout brings the mapped infrastructure classes together with OSM-derived spatial context, a grouped legend, scale bar and north arrow.</p>
+<figure><a href="assets/NORDHAVEN_Infrastructure_Overview03.pdf" target="_blank"><img src="assets/01_NORDHAVEN_QGIS_Project_Overview.png" alt="NORDHAVEN QGIS project overview" style="width:100%;max-width:900px;border-radius:8px"></a></figure>
+<div class="downloads"><a href="assets/NORDHAVEN_Infrastructure_Overview03.pdf" target="_blank">Open final map PDF ↗</a></div>
+</div></section>
+
+<section><label>03 / DATA MODEL</label><div>
+<h2>One GeoPackage. <i>Five stored layers.</i></h2>
+<p><code>Nordhaven_Infrastructure.gpkg</code> contains the following layers and geometry types:</p>
+<div class="layergrid">
+<div class="layer"><h3>road-areas</h3><p>Polygon · 3 records</p><p>Parking area, pedestrian area and roadway, with surface-material attributes.</p></div>
+<div class="layer"><h3>infrastructure_points</h3><p>Point · 3 records</p><p>Manhole, tree and streetlight demonstration assets.</p></div>
+<div class="layer"><h3>infrastructure_lines</h3><p>Line · 6 records</p><p>Curbs, drainage channels and crash barriers.</p></div>
+<div class="layer"><h3>traffic_signs</h3><p>Line · 3 records</p><p>Synthetic regulatory, warning and information sign features. Stored as line geometry.</p></div>
+<div class="layer"><h3>study_area</h3><p>Polygon</p><p>Study-area boundary layer.</p></div>
+</div>
+<p>Attribute design includes feature identifiers, feature classifications, material or condition fields, source references and review status. All review-status values shown in the presentation are Pending.</p>
+</div></section>
+
+<section><label>04 / MAPPING WORKFLOW & EVIDENCE</label><div>
+<h2>From reference context to <i>mapped features.</i></h2>
+<p>OSM-derived roads, buildings and land-use layers provide reference context. The infrastructure demonstration features are independently digitised and organised in QGIS.</p>
+<div class="gallery">
+<figure><img src="assets/01_NORDHAVEN_QGIS_Project_Overview.png" alt="QGIS project overview"><figcaption>QGIS project overview</figcaption></figure>
+<figure><img src="assets/02_Road_Areas_Attribute_Table.png" alt="Road areas attribute table"><figcaption>Road areas · 3 records</figcaption></figure>
+<figure><img src="assets/03_Infrastructure_Points_Attribute_Table.png" alt="Infrastructure points attribute table"><figcaption>Infrastructure points · 3 records</figcaption></figure>
+<figure><img src="assets/04_Infrastructure_Lines_Attribute_Table.png" alt="Infrastructure lines attribute table"><figcaption>Infrastructure lines · 6 records</figcaption></figure>
+<figure><img src="assets/05_Traffic_Signs_Attribute_Table.png" alt="Traffic signs attribute table"><figcaption>Traffic signs · 3 synthetic demonstration records</figcaption></figure>
+</div>
+</div></section>
+
+<section><label>05 / QA & LIMITATIONS</label><div>
+<h2>Validation completed at <i>demonstration level.</i></h2>
+<div class="statgrid">
+<div class="stat"><strong>0</strong>Invalid geometries reported in tested layers</div>
+<div class="stat"><strong>0</strong>Road-area records selected for missing checked values</div>
+<div class="stat"><strong>Visual</strong>Inspection of mapped feature representation</div>
+</div>
+<p>QGIS Check Validity was run on selected geometry layers. A completeness query on road-areas checked <code>area_class</code>, <code>surface_material</code>, <code>area_m2</code>, <code>source_ref</code> and <code>review_status</code>, returning zero selected features.</p>
+<div class="notice">These checks are not a complete assessment of positional or thematic accuracy and do not represent production certification. Positional accuracy assessment, topology validation, automated Python QA/QC and PostGIS validation were not performed in this project.</div>
+</div></section>
+
+<section><label>06 / FULL CASE-STUDY PRESENTATION</label><div>
+<h2>The complete 8-slide <i>project presentation.</i></h2>
+<p>This is the supplied NORDHAVEN portfolio case-study PDF, included unchanged. Browse it below or open/download the original PDF.</p>
+<iframe class="pdf-frame" src="assets/NORDHAVEN_Portfolio_Case_Study.pdf" title="NORDHAVEN portfolio case study presentation"></iframe>
+<div class="downloads"><a href="assets/NORDHAVEN_Portfolio_Case_Study.pdf" target="_blank">Open full presentation ↗</a><a href="assets/NORDHAVEN_Portfolio_Case_Study.pdf" download>Download presentation PDF ↓</a></div>
+</div></section>
+
+<section><label>07 / CAPABILITIES & NEXT STEPS</label><div>
+<h2>Capabilities <i>demonstrated.</i></h2>
+<ul><li>Spatial data preparation in QGIS (EPSG:25832)</li><li>Polygon, point and line feature digitisation</li><li>Project-specific attribute schema design</li><li>GeoPackage spatial database organisation</li><li>Basic geometry and attribute QA/QC</li><li>Cartographic production with a PDF map</li></ul>
+<h3>Proposed future enhancements — not yet implemented</h3>
+<ul><li>Python automation</li><li>GeoPandas geospatial processing</li><li>PostGIS spatial database integration</li><li>Advanced spatial QA/QC and automated validation reporting</li></ul>
+<p class="smallnote">Reference data attribution: © OpenStreetMap contributors · Open Database License (ODbL) 1.0 · <a href="https://www.openstreetmap.org/copyright" target="_blank">openstreetmap.org/copyright</a>. Download provider and extraction date are not specified in this case study.</p>
+</div></section>
+</main>
+<footer>MAHADEV M <span>NORDHAVEN / INDEPENDENT CASE STUDY</span><span>© 2026</span></footer>
+</body></html>
