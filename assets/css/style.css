@@ -209,3 +209,18 @@ section + section { border-top-color: var(--page-edge); }
 .sheet .caption, .shot .caption, .feat figcaption p { color: var(--ink-soft); }
 .sheet a, .shot a, .table-wrap a { color: var(--teal-text); }
 @media (max-width: 52rem) { .hero::before { background: rgba(14, 27, 44, .82); } }
+
+/* ===== Portfolio project layout fixes ===== */
+/* Projects without thumbnail images should use the full available width. */
+.proj.proj-wide {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.proj.proj-wide > div {
+  grid-column: 1 / -1;
+}
+
+/* Keep anchor-linked sections clear of the sticky navigation. */
+section[id] {
+  scroll-margin-top: 90px;
+}
