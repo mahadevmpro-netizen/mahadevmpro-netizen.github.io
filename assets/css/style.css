@@ -224,3 +224,8 @@ section + section { border-top-color: var(--page-edge); }
 section[id] {
   scroll-margin-top: 90px;
 }
+
+/* Give text-only project descriptions more room than ordinary body copy. */
+.proj.proj-wide p {
+  max-width: 85ch;
+}
