@@ -5,6 +5,9 @@ Static portfolio site, served with GitHub Pages at https://mahadevmpro-netizen.g
 ## Pages
 - `index.html` home, selected work, about, skills, contact
 - `nordhaven.html` NORDHAVEN case study (QGIS, GeoPackage, QA/QC)
+- `qa-tool.html` Automated GIS QA/QC tool case study
+- `terrain.html` DEM-based terrain and suitability analysis
+- `assets/css/extra.css` styles for the added sections
 
 ## Notes
 - NORDHAVEN is an independent demonstration project on OpenStreetMap data. It contains no employer or client data.

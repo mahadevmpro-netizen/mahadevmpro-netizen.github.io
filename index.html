@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/extra.css">
 </head>
 
 <body>
@@ -28,6 +29,7 @@
       <a class="brand" href="index.html">Mahadev M</a>
       <nav class="nav" aria-label="Main">
         <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -69,6 +71,18 @@
         </figure>
       </div>
     </div>
+
+    <!-- AT A GLANCE -->
+    <section class="facts-band" aria-label="At a glance">
+      <div class="wrap">
+        <ul class="facts">
+          <li><b>3 years</b><span>GIS data production and QA/QC on infrastructure projects for Germany and Europe.</span></li>
+          <li><b>45 checks</b><span>automated across five infrastructure layers, with CSV and HTML reports.</span></li>
+          <li><b>3 projects</b><span>independent, on public data, each with maps, results and a write-up.</span></li>
+          <li><b>QGIS + Python</b><span>GeoPackage design, GeoPandas, JSON-driven rules, raster terrain analysis.</span></li>
+        </ul>
+      </div>
+    </section>
 
     <!-- PROJECTS -->
     <section id="work" aria-labelledby="work-h">
@@ -113,118 +127,47 @@
         </article>
 
         <!-- PROJECT 2 -->
-        <article class="proj proj-wide">
+        <article class="proj">
+          <a href="qa-tool.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/qa-report-crop.jpg" width="940" height="545" alt="" loading="lazy">
+          </a>
           <div>
-            <h3>Automated GIS QA/QC Tool</h3>
+            <h3><a href="qa-tool.html">Automated GIS QA/QC Tool</a></h3>
             <p>
-              A Python-based GIS quality-checking workflow developed to
-              validate geospatial datasets using configurable rules.
-              The tool separates validation settings into a JSON
-              configuration file and executes checks through a Python
-              script.
-            </p>
-            <p>
-              The workflow generates a CSV report showing individual
-              check results, making it easier to review validation
-              outcomes beyond terminal messages.
+              A Python tool that checks a five-layer GeoPackage against written rules.
+              Validation rules live in a JSON file, and every run produces a CSV and an
+              HTML report. On the current dataset all 45 checks pass; on an older backup
+              copy the tool flags three invalid material values.
             </p>
             <ul class="tags" aria-label="Tools and topics">
-              <li>Python</li>
-              <li>GeoPandas</li>
-              <li>JSON</li>
-              <li>CSV Reporting</li>
-              <li>GIS QA/QC</li>
-              <li>GitHub</li>
+              <li>Python</li><li>GeoPandas</li><li>JSON</li><li>CSV and HTML reporting</li><li>GitHub</li>
             </ul>
-            <p class="muted">
-              Independent learning and portfolio project. Validation
-              coverage is limited to the checks implemented in the tool.
-            </p>
-            <div class="shots" aria-label="GIS QA/QC tool screenshots">
-              <figure class="shot">
-                <img src="assets/img/qa-report-pass.jpg"
-                     alt="CSV quality assurance report showing the results of the implemented GIS validation checks."
-                     loading="lazy">
-                <figcaption class="caption">
-                  CSV QA report — individual validation results in a reviewable format.
-                </figcaption>
-              </figure>
-              <figure class="shot">
-                <img src="assets/img/qa-terminal-results.jpg"
-                     alt="Terminal output from running the Python GIS QA/QC script."
-                     loading="lazy">
-                <figcaption class="caption">
-                  Python execution — validation feedback displayed in the terminal.
-                </figcaption>
-              </figure>
-            </div>
+            <p class="proj-link"><a href="qa-tool.html">Read the case study</a> |
+              <a href="https://github.com/mahadevmpro-netizen/gis-scripts/tree/main/qa_tool">View the code</a></p>
+            <p class="muted">Independent learning project. Coverage is limited to the checks implemented.</p>
           </div>
         </article>
 
         <!-- PROJECT 3 -->
-        <article class="proj proj-wide">
+        <article class="proj">
+          <a href="terrain.html" tabindex="-1" aria-hidden="true">
+            <img src="assets/img/t-slope.jpg" width="814" height="485" alt="" loading="lazy">
+          </a>
           <div>
-            <h3>DEM-Based Terrain and Suitability Analysis</h3>
+            <h3><a href="terrain.html">DEM-Based Terrain and Suitability Analysis</a></h3>
             <p>
-              A raster analysis workflow using a Digital Elevation Model
-              in QGIS. The work includes terrain derivatives and
-              classification outputs to explore how elevation and slope
-              conditions can contribute to suitability assessment.
-            </p>
-            <p>
-              Processing outputs include slope, aspect, hillshade,
-              contour generation, elevation suitability and slope
-              suitability layers, followed by a weighted overlay exercise.
+              A raster workflow in QGIS: hillshade, slope, aspect and contours from a
+              Digital Elevation Model, then elevation and slope suitability layers combined
+              in a weighted overlay.
             </p>
             <ul class="tags" aria-label="Tools and topics">
-              <li>QGIS</li>
-              <li>DEM</li>
-              <li>Raster Analysis</li>
-              <li>Slope and Aspect</li>
-              <li>Reclassification</li>
-              <li>Weighted Overlay</li>
+              <li>QGIS</li><li>DEM</li><li>Raster analysis</li><li>Reclassification</li><li>Weighted overlay</li>
             </ul>
-            <p class="muted">
-              Independent technical learning project. Suitability results
-              demonstrate a GIS workflow and should not be interpreted
-              as a validated site-selection recommendation.
-            </p>
-            <div class="shots" aria-label="DEM terrain analysis outputs">
-              <figure class="shot">
-                <img src="assets/img/terrain-hillshade.jpg"
-                     alt="Hillshade raster generated from the digital elevation model."
-                     loading="lazy">
-                <figcaption class="caption">
-                  Hillshade — terrain relief visualisation derived from the DEM.
-                </figcaption>
-              </figure>
-              <figure class="shot">
-                <img src="assets/img/terrain-aspect.jpg"
-                     alt="Aspect raster showing the direction that terrain slopes face."
-                     loading="lazy">
-                <figcaption class="caption">
-                  Aspect — directional orientation of terrain slopes.
-                </figcaption>
-              </figure>
-              <figure class="shot">
-                <img src="assets/img/slope-suitability.jpg"
-                     alt="Reclassified slope suitability raster with classes from zero to three."
-                     loading="lazy">
-                <figcaption class="caption">
-                  Slope suitability — reclassified slope values for the exercise.
-                </figcaption>
-              </figure>
-              <figure class="shot">
-                <img src="assets/img/weighted-overlay.jpg"
-                     alt="Weighted overlay output combining suitability criteria."
-                     loading="lazy">
-                <figcaption class="caption">
-                  Weighted overlay — combined suitability output from the exercise.
-                </figcaption>
-              </figure>
-            </div>
+            <p class="proj-link"><a href="terrain.html">See the outputs and workflow</a></p>
+            <p class="muted">Independent learning project. Results illustrate a workflow, not a validated site-selection recommendation.</p>
           </div>
         </article>
+
 
       </div>
     </section>
@@ -253,51 +196,76 @@
       </div>
     </section>
 
+    <!-- EXPERIENCE -->
+    <section id="experience" aria-labelledby="exp-h">
+      <div class="wrap split">
+        <h2 id="exp-h">Experience and Education</h2>
+        <ol class="xp">
+          <li>
+            <time>11/2023 to present</time>
+            <div>
+              <h3>Geospatial Engineer</h3>
+              <p class="muted">Roter LehmannPartner India Pvt. Ltd., Bengaluru</p>
+              <ul>
+                <li>Validate geospatial datasets for infrastructure and engineering projects across Germany and Europe against project specifications.</li>
+                <li>Run geometry, topology and attribute-level quality checks on raster and vector data.</li>
+                <li>Apply coordinate reference systems and georeferencing to produce reliable outputs.</li>
+                <li>Work with multidisciplinary engineering teams to resolve data issues and deliver structured spatial datasets.</li>
+                <li>Standardise workflows through systematic data reviews and documented validation procedures.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <time>04/2023 to 10/2023</time>
+            <div>
+              <h3>Civil Engineer / Supervisor</h3>
+              <p class="muted">BGC Consultants, Pathanamthitta</p>
+              <ul>
+                <li>Supervised on-site workers and subcontractors and checked progress and quality against technical drawings.</li>
+                <li>Tracked project expenditure and coordinated site teams with project requirements.</li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <time>2018 to 2022</time>
+            <div>
+              <h3>B.Tech, Civil Engineering</h3>
+              <p class="muted">St Thomas College of Engineering and Technology, Chengannur</p>
+            </div>
+          </li>
+          <li>
+            <time>Publications and courses</time>
+            <div>
+              <p>Determination of Optimum Binder Content in Stone Matrix Asphalt, IJIRSET, Volume 11, Issue 8, August 2022.</p>
+              <p>Space Habitat Challenge, Vikram Sarabhai Space Centre (VSSC), 2020: multidisciplinary team challenge on conceptual designs for sustainable extraterrestrial habitats.</p>
+              <p>Geospatial Technology for Construction, L&amp;T EduTech, 2025.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
     <!-- SKILLS -->
     <section id="skills" aria-labelledby="skills-h">
-      <div class="wrap split">
-        <h2 id="skills-h">Skills and Tools</h2>
-        <div>
-          <table class="skills">
+      <div class="wrap">
+        <h2 id="skills-h">Skills and Where to See Them</h2>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th scope="col">Skill</th><th scope="col">Level</th><th scope="col">Evidence</th></tr></thead>
             <tbody>
-              <tr>
-                <th scope="row">GIS Software</th>
-                <td>QGIS, ArcGIS Pro</td>
-              </tr>
-              <tr>
-                <th scope="row">Spatial Data</th>
-                <td>Vector and raster data, GeoPackage, GeoJSON,
-                    coordinate reference systems, attribute management</td>
-              </tr>
-              <tr>
-                <th scope="row">Spatial Analysis</th>
-                <td>Terrain analysis, slope, aspect, hillshade,
-                    contours and suitability workflows</td>
-              </tr>
-              <tr>
-                <th scope="row">Quality Control</th>
-                <td>GIS data validation, attribute checks,
-                    geometry checks and QA/QC reporting</td>
-              </tr>
-              <tr>
-                <th scope="row">Programming</th>
-                <td>Python, GeoPandas, pandas, JSON and CSV workflows</td>
-              </tr>
-              <tr>
-                <th scope="row">Data and Version Control</th>
-                <td>Git, GitHub, JupyterLab and Miniforge</td>
-              </tr>
-              <tr>
-                <th scope="row">CAD and BIM</th>
-                <td>AutoCAD and BIM-related workflows</td>
-              </tr>
+              <tr><th scope="row">QGIS</th><td class="lvl">Strong</td><td>Three years of professional feature work and QA/QC. See the <a href="nordhaven.html">Bremerhaven case study</a>.</td></tr>
+              <tr><th scope="row">Cartography</th><td class="lvl">Working</td><td>Detail and overview maps with legends, scale bars and a sources line, plus a written style guide.</td></tr>
+              <tr><th scope="row">Coordinate systems</th><td class="lvl">Working</td><td>EPSG:25832 for measuring; reprojection to WGS 84 for GeoJSON export.</td></tr>
+              <tr><th scope="row">GeoPackage data design</th><td class="lvl">Working</td><td>Five-layer schema, data dictionary and attribute rules (dropdown lists, not-null and unique constraints).</td></tr>
+              <tr><th scope="row">Python and GeoPandas</th><td class="lvl">Working</td><td>Validation, spatial joins, buffers and overlay in notebooks, and a reusable tool. <a href="https://github.com/mahadevmpro-netizen/gis-scripts">Code on GitHub</a>.</td></tr>
+              <tr><th scope="row">GIS QA/QC automation</th><td class="lvl">Working</td><td>JSON-configured checks with CSV and HTML reports. See the <a href="qa-tool.html">QA tool</a>.</td></tr>
+              <tr><th scope="row">Terrain and raster analysis</th><td class="lvl">Working</td><td>Hillshade, slope, aspect, contours, reclassification and weighted overlay. See the <a href="terrain.html">terrain project</a>.</td></tr>
+              <tr><th scope="row">Git and GitHub</th><td class="lvl">Working</td><td>Public repositories with scripts, a notebook and READMEs.</td></tr>
+              <tr><th scope="row">CAD and BIM</th><td class="lvl">Professional exposure</td><td>AutoCAD and BIM-related workflows in project work.</td></tr>
             </tbody>
           </table>
-          <p class="caption" style="margin-top:1rem">
-            Project pages distinguish independent learning exercises
-            from professional experience.
-          </p>
         </div>
+        <p class="caption" style="margin-top:1rem">Levels describe how deeply I have used each skill. Project pages say clearly what is independent learning and what is professional experience.</p>
       </div>
     </section>
 

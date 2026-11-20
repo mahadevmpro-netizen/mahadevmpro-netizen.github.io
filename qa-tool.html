@@ -1,0 +1,137 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automated GIS QA/QC Tool | Mahadev M</title>
+  <meta name="description" content="Python tool that validates a five-layer GeoPackage with JSON-configured rules and produces CSV and HTML reports.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mahadev M | Geospatial Portfolio">
+  <meta property="og:description" content="Infrastructure mapping, spatial data engineering, GIS automation and terrain analysis.">
+  <meta property="og:image" content="https://mahadevmpro-netizen.github.io/assets/img/og-nordhaven.png">
+  <meta property="og:url" content="https://mahadevmpro-netizen.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#15283f">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/extra.css">
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <div class="wrap">
+      <a class="brand" href="index.html">Mahadev M</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html#work">Work</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section aria-labelledby="t">
+      <div class="wrap">
+        <a class="back" href="index.html#work">Back to selected work</a>
+        <h1 id="t">Automated GIS QA/QC Tool</h1>
+        <p class="lede page-intro">A Python tool that checks a five-layer infrastructure GeoPackage against written rules and produces a report that a reviewer can read without opening QGIS.</p>
+        <p class="muted page-intro">Independent learning and portfolio project on a demonstration dataset (Bremerhaven, State of Bremen). It contains no employer or client data.</p>
+        <dl class="meta">
+          <div><dt>Language</dt><dd>Python 3.12</dd></div>
+          <div><dt>Libraries</dt><dd>GeoPandas, pandas</dd></div>
+          <div><dt>Input</dt><dd>GeoPackage with five layers</dd></div>
+          <div><dt>Rules</dt><dd>config.json</dd></div>
+          <div><dt>Output</dt><dd>qa_report.csv and qa_report.html</dd></div>
+          <div><dt>Code</dt><dd><a href="https://github.com/mahadevmpro-netizen/gis-scripts/tree/main/qa_tool">github.com/mahadevmpro-netizen/gis-scripts</a></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section aria-labelledby="how">
+      <div class="wrap">
+        <h2 id="how">How it works</h2>
+        <ol class="flow">
+          <li><b>Read the rules</b><span>config.json holds the layer names, the ID field, the required attributes and the allowed values for each layer.</span></li>
+          <li><b>Read each layer</b><span>GeoPandas loads every layer from the GeoPackage.</span></li>
+          <li><b>Run the checks</b><span>Each check counts the features that fail it.</span></li>
+          <li><b>Report</b><span>A summary prints in the terminal, and the results are saved as CSV and as an HTML page.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section aria-labelledby="chk">
+      <div class="wrap">
+        <h2 id="chk">What it checks</h2>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th scope="col">Check</th><th scope="col">What it finds</th><th scope="col">Why it matters</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Missing or empty geometry</th><td>Features with no shape</td><td>They cannot be mapped or measured.</td></tr>
+              <tr><th scope="row">Invalid geometry</th><td>Self-intersecting or broken shapes</td><td>They break overlay and area calculations.</td></tr>
+              <tr><th scope="row">Lines shorter than 1 m</th><td>Tiny stubs left by digitising (line layers only)</td><td>They distort length statistics.</td></tr>
+              <tr><th scope="row">Duplicate feature IDs</th><td>The same identifier on two features</td><td>It breaks joins and references.</td></tr>
+              <tr><th scope="row">Empty required attributes</th><td>Blank values in key columns</td><td>It means incomplete data would be delivered.</td></tr>
+              <tr><th scope="row">Values outside allowed lists</th><td>Typos and wrong capitalisation</td><td>Filters and symbology silently miss those features.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="res">
+      <div class="wrap">
+        <h2 id="res">Results</h2>
+        <div class="table-wrap">
+          <table class="data">
+            <thead><tr><th scope="col">Dataset</th><th scope="col">Checks</th><th scope="col">Passed</th><th scope="col">Failed</th><th scope="col">Finding</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Current GeoPackage</th><td>45</td><td>45</td><td>0</td><td>All five layers pass (11, 10, 9, 5 and 10 checks).</td></tr>
+              <tr><th scope="row">Older backup copy</th><td>45</td><td>44</td><td>1</td><td>Three invalid material values in infrastructure_points, where the allowed list expects lowercase values.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Running the tool on the older copy is the proof that it catches real errors, not only clean data.</p>
+        <div class="shots">
+          <figure class="shot"><img src="assets/img/qa-report-crop.jpg" width="940" height="545" alt="HTML quality assurance report with an overall summary of 45 checks and a layer-wise results table." loading="lazy"><figcaption class="caption">The HTML report: overall summary and results for each layer.</figcaption></figure>
+          <figure class="shot"><img src="assets/img/qa-terminal-crop.jpg" width="1280" height="642" alt="Terminal output showing a clean run with 45 passes and a run on the older copy with one failure." loading="lazy"><figcaption class="caption">Terminal output: the clean run, then the run on the older copy that reports one failed check.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="dec">
+      <div class="wrap">
+        <h2 id="dec">Design decisions and limits</h2>
+        <ul>
+          <li><b>Rules live outside the code.</b> Allowed values and required fields are edited in config.json, so a rule change does not need a code change, as long as the check type already exists.</li>
+          <li><b>Two report formats.</b> CSV for filtering and sorting, HTML for quick reading.</li>
+          <li><b>Tested against known-bad data.</b> The older backup copy gives a reproducible failing case.</li>
+          <li><b>Limits.</b> The tool is built around the five NORDHAVEN layer schemas and the checks listed above. It is not a general validator for any GeoPackage.</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>&copy; 2026 Mahadev M</p>
+      <p class="caption">
+        Projects shown here include independent demonstrations on
+        public data. They contain no employer or client data.
+        Map data &copy; OpenStreetMap contributors, licensed under
+        the <a href="https://www.openstreetmap.org/copyright">
+        Open Database License</a>.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
